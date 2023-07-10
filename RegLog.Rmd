@@ -60,6 +60,11 @@ ggplot(data = titanic, aes(Pclass, fill = factor(Pclass)))+
   geom_bar(show.legend = F, position = 'dodge')
 ```
 
+```{r}
+ggplot(data = titanic, aes(Sex,Age, fill = Sex))+
+  geom_bar(stat = 'identity')
+```
+
 
 
 
