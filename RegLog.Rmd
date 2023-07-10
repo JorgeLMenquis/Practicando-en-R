@@ -1,0 +1,83 @@
+---
+title: "Regresion Logistica"
+author: "Reportes con R - Clase 3"
+date: "2022-12-10"
+output:
+  html_document:
+    toc: yes
+    toc_float:
+      collapse: yes
+    number_section: yes
+    code_folding: hide
+    code_download: yes
+    theme: yeti
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduccion
+
+La regresion logistica es uno de los metodos mas comunes para predecir el valor de una variable de respuesta $Y$ de tipo categorica, en funcion de conjunto de variables predictoras. Algunos ejemplos de esta variables $Y$ pueden ser  :
+
+* $Y=0$ o $Y=1$
+* $Y=O$ pago su credito o $Y=1$ no pago su credito
+
+El objetivo de este tipo de modelos es el de estimar la probabilidad del evento de interes.
+$$P[Y=1 | X=x]= \alpha_o+\alpha_1+\alpha_2x_2+...+\alpha_kx_p$$
+Usaremos la funcion logit para estas cuentas :
+
+$$P[Y=1|X=x] = \frac{exp(\beta^{T}x)}{1+ exp(\beta^{T}x)}$$
+
+# Ejemplo en R
+
+```{r CargaLibrerias,eval = TRUE,message=F}
+library(ggplot2)
+library(corrplot)
+library(car)
+library(knitr)
+library(PerformanceAnalytics)
+library(cowplot)
+```
+
+```{r CargarDatos, include=T}
+titanic <- read.csv('https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv')
+
+colnames(titanic)
+
+```
+
+## Algunos gráficos
+Consideremos:
+
+* La variable dependiente survived
+* La variable Pclas
+* La variable Age
+
+```{r PrimerGrafico}
+ggplot(data = titanic, aes(Pclass, fill = factor(Pclass)))+
+  geom_bar(show.legend = F, position = 'dodge')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
